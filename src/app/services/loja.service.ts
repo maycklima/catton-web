@@ -10,6 +10,7 @@ export class LojaService{
 
   private readonly APIreport = `${environment.API}/loja`;
 
+  public dadosRotaUsuario: any = null;
   public dadosRotaLoja: any = null;
 
   constructor(private http: HttpClient) {

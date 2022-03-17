@@ -4,10 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-lojas',
-  templateUrl: './lojas.component.html',
-  styleUrls: ['./lojas.component.css']
+  templateUrl: './area-lojas.component.html',
+  styleUrls: ['./area-lojas.component.css']
 })
-export class LojasComponent implements OnInit {
+export class AreaLojasComponent implements OnInit {
 
   constructor(private router: Router, private lojaService: LojaService) { }
   
@@ -19,7 +19,7 @@ export class LojasComponent implements OnInit {
   }
 
   inicializar(){
-    this.usuario = this.lojaService.dadosRotaLoja;
+    this.usuario = this.lojaService.dadosRotaUsuario;
     this.buscarLojas(this.usuario);
   }
 
@@ -32,5 +32,11 @@ export class LojasComponent implements OnInit {
     }else{
       this.router.navigate(['login']);
     }
+  }
+
+  detalharLoja(loja:any){
+    console.log(loja)
+    this.lojaService.dadosRotaLoja = loja;
+    this.router.navigate(['loja-detalhe']);
   }
 }

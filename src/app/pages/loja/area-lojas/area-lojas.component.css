@@ -1,12 +1,12 @@
 .container-card{
     background-color: grey;
     height: 100%;
-    padding-top: 100px;
+    padding-top: 20px;
 }
 
 .loja-card{
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     margin: 5px;
     cursor: pointer;
 }
@@ -20,4 +20,5 @@
     padding: 50px;
     min-width: 780px;
     min-height: 200px;
+    max-width: 780px;
 }

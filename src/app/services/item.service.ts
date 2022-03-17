@@ -17,7 +17,7 @@ export class ItemService{
       return this.http.get<any[]>(`${this.APIreport}/listarItens/`);
     }
 
-    listarItensPorIdLoja(): Observable<any[]> {
-      return this.http.get<any[]>(`${this.APIreport}/buscarItemPorIdLoja/1`);
+    listarItensPorIdLoja(idLoja:number): Observable<any[]> {
+      return this.http.get<any[]>(`${this.APIreport}/buscarItemPorIdLoja/` + idLoja);
   }
 }

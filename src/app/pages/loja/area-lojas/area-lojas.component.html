@@ -2,8 +2,8 @@
     <div  fxLayout="row" fxLayoutAlign="center start" >
         <mat-card  >
             <div class="titulo-card"><h2>Lojas disponívels</h2></div>
-            <div  class="conteudo-card" fxLayout="row" fxLayoutAlign="center start"  >
-            <mat-card  *ngFor="let loja of lojas" class="loja-card">{{loja.descricao}}</mat-card>
+            <div  class="conteudo-card" fxLayout="row wrap" fxLayoutAlign="center start"  >
+            <mat-card  *ngFor="let loja of lojas" class="loja-card" (click)="detalharLoja(loja)">{{loja.descricao}}</mat-card>
             </div>
         </mat-card>
     </div>

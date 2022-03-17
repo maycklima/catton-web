@@ -1,0 +1,29 @@
+.container-card{
+    background-color: rgb(211, 211, 211);
+    height: 200%;
+}
+
+.loja-tela{
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.titulo-tela{
+    background-color: rgb(211, 211, 211);
+    text-align: center;
+    padding: 10px;
+    height: 50px;
+}
+
+.conteudo-card{
+    text-align: center;
+    min-width: 780px;
+    min-height: 200px;
+    max-width: 900px;
+}
+
+table {
+    width: 90%;
+  }

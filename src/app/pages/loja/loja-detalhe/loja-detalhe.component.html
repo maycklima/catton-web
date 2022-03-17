@@ -1,0 +1,39 @@
+
+<div class="titulo-tela"><h2>Gerencie Sua Loja</h2></div>
+<div class="container-card" fxLayout="column" fxLayoutAlign="start center" >
+    <div  fxLayout="column" fxLayoutAlign="start center" >
+        <mat-card>
+            <p> Loja: {{ loja.nome }}</p>
+            <p> CNPJ: {{ loja.cnpj }}</p>
+            <p> Descrição: {{ loja.descricao }}</p>
+            <p> Email: {{ loja.email }}</p>
+            <p> Telefone: {{ loja.telefone }}</p>
+            <p> Instagram: {{ loja.instagramLink }}</p>
+            <p> Celular{{ loja.celular }}</p>
+        </mat-card>
+            <div  class="conteudo-card" fxLayout="row wrap" fxLayoutAlign="center start"  >
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">           
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="descricao">
+                      <th mat-header-cell *matHeaderCellDef> Descricao </th>
+                      <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+                    </ng-container>
+                  
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="quantidade">
+                      <th mat-header-cell *matHeaderCellDef> Quantidade </th>
+                      <td mat-cell *matCellDef="let element"> {{element.quantidade}} </td>
+                    </ng-container>
+                  
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="valor">
+                      <th mat-header-cell *matHeaderCellDef> Valor </th>
+                      <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
+                    </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+            </div>
+    </div>
+</div>

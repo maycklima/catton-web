@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTableModule} from '@angular/material/table';
 
 const MaterialComponents = [
 MatFormFieldModule,
@@ -23,6 +24,7 @@ MatCardModule,
 MatDividerModule,
 MatStepperModule,
 MatSnackBarModule,
+MatTableModule
 ];
 
 @NgModule({

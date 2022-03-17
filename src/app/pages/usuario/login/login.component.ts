@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.formulario = this._formBuilder.group({
-      usuario: [''],
+      usuario: ['mayck'],
     });
   }
 
@@ -44,8 +44,8 @@ export class LoginComponent implements OnInit {
       this.usuarioService.verificarLogin(this.usuarioFormulario).subscribe(usuario => {
         this.usuario = usuario;
         if(usuario){
-          this.lojaService.dadosRotaLoja = usuario;
-          this.router.navigate(['lojas']);
+          this.lojaService.dadosRotaUsuario = usuario;
+          this.router.navigate(['area-lojas']);
         }else{
           this._snackBar.open("Usuário não encontrado", "Fechar");
         }

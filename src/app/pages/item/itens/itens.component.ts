@@ -17,7 +17,7 @@ export class ItensComponent implements OnInit {
   }
 
   listarItensPorIdLoja(){
-    this.itemService.listarItensPorIdLoja().subscribe(resposta => {
+    this.itemService.listarItensPorIdLoja(1).subscribe(resposta => {
       console.log(resposta);
       this.item = resposta;
   });
