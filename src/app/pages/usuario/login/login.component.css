@@ -1,0 +1,11 @@
+.container-card{
+    background-color: grey;
+    height: 100%;
+    padding-top: 100px;
+}
+
+.conteudo-card{
+    text-align: center;
+    padding: 50px;
+    max-width: 250px;
+}

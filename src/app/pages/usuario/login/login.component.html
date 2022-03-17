@@ -1,1 +1,15 @@
-<p>login works!</p>
+<div class="container-card" fxLayout="row" fxLayoutAlign="center start" >
+    <div>
+        <mat-card class="conteudo-card">
+            <form [formGroup]="formulario" (ngSubmit)="entrar()">
+            <h3>Digite o seu usuário para entrar</h3>
+            <mat-form-field appearance="outline">
+                <mat-label>Usuário</mat-label>
+                <input matInput formControlName="usuario">
+                <mat-icon matSuffix>account_circle</mat-icon>
+              </mat-form-field><br>
+                <button mat-raised-button color="primary">Entrar</button>
+            </form>
+        </mat-card>
+    </div>
+</div>

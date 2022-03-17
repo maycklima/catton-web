@@ -15,6 +15,8 @@ import { PerfilComponent } from './pages/home/perfil/perfil.component';
 import { BannerComponent } from './pages/home/banner/banner.component';
 import { ToolbarComponent } from './pages/home/toolbar/toolbar.component';
 import { RecuperacaoComponent } from './usuario/recuperacao/recuperacao.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LojasComponent } from './pages/lojas/lojas.component';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { RecuperacaoComponent } from './usuario/recuperacao/recuperacao.componen
     PerfilComponent,
     BannerComponent,
     ToolbarComponent,
-    RecuperacaoComponent
+    RecuperacaoComponent,
+    LojasComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,9 @@ import { RecuperacaoComponent } from './usuario/recuperacao/recuperacao.componen
     BrowserAnimationsModule,
     MaterialModule,
     routing,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

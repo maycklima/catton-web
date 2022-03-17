@@ -8,13 +8,13 @@ import { environment } from 'src/environments/environment';
 })
 export class ItemService{
 
-  private readonly APIreport = `${environment.API}`;
+  private readonly APIreport = `${environment.API}/item`;
 
   constructor(private http: HttpClient) {
   }
 
     listarItens(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.APIreport}/listarItens/`);
+      return this.http.get<any[]>(`${this.APIreport}/listarItens/`);
     }
 
     listarItensPorIdLoja(): Observable<any[]> {

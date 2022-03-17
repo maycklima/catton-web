@@ -1,0 +1,23 @@
+.container-card{
+    background-color: grey;
+    height: 100%;
+    padding-top: 100px;
+}
+
+.loja-card{
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.titulo-card{
+    text-align: center;
+}
+
+.conteudo-card{
+    text-align: center;
+    padding: 50px;
+    min-width: 780px;
+    min-height: 200px;
+}
