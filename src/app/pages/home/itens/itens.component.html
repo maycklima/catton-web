@@ -1,0 +1,20 @@
+<div class="container" fxLayoutAlign="center center" fxFlex="100%">
+    <div class="iten" fxLayout="row wrap" fxLayoutAlign="center center" fxFlex="80%">
+    <div *ngFor="let item of item" class="item">
+    <mat-divider></mat-divider> 
+      <div>
+        <img class="item-imagem" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"><br>
+      </div>
+      <div class="item-descricao" >
+          <span> R$ {{ item?.valor }}                    </span><br>
+          <span>    {{ item?.descricao }}                </span><br>
+          <span>    ({{ item?.quantidade }} disponíveis) </span>
+      </div>
+      <div>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </div>
+    </div>
+  </div>
+</div>
+  

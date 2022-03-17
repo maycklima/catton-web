@@ -1,0 +1,12 @@
+.banner {    
+    --background-color: green;
+  }
+  
+  .imagem {    
+      --background-color: grey;
+      border-bottom-right-radius: 30px;
+      border-bottom-left-radius: 30px;
+      min-width: 1000px;
+      max-height: 250px;
+      background-size: cover;
+  }

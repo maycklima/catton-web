@@ -1,0 +1,18 @@
+.perfil-completo {    
+  background-color: green;
+  border-radius: 5px;
+}
+
+.perfil {    
+    --background-color: grey;
+    width: 200px;
+    height: 200px;
+    margin-right: 50px;
+    border-radius: 50%;
+}
+
+.faixada {    
+  width: 100%;  
+  max-width: 250px;
+  max-height: 250px;
+}
