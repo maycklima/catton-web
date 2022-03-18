@@ -19,7 +19,7 @@ export class LojaDetalheComponent implements OnInit {
   ELEMENT_DATA: any[] = [];
   dataSource: any[] = [];
   
-  displayedColumns: string[] = ['descricao', 'quantidade', 'valor'];
+  displayedColumns: string[] = ['descricao', 'quantidade', 'valor', 'acoes'];
     
   
 

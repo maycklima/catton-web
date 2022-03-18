@@ -1,5 +1,26 @@
+.container{
+   background-color: rgb(237, 237, 237);
+    width: 100%;
+}
+
+.card-descricao{
+    --background-color: aqua;
+    width: 88%;
+    box-shadow: 1px 1px rgb(208, 208, 208);
+    margin-top: 50px;
+}
+
+.card-descricao-conteudo{
+   --background-color: pink;
+   width: 40%;
+}
+
+.card-descricao-conteudo-centro{
+    text-align: center;
+}
+
 .container-card{
-    background-color: rgb(211, 211, 211);
+    --background-color: blue;
     height: 200%;
 }
 
@@ -10,20 +31,59 @@
     cursor: pointer;
 }
 
+.botao-novo{   
+    width: 20%;
+    text-align: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    align-self: flex-start ;
+    margin-bottom: 10px;
+}
+
+.botao-novo-self{   
+    background-color: green;
+    color: white;
+}
+
+.botao-editar{   
+    --background-color: red;
+    width: 100%;
+    text-align: center;
+    align-items: flex-end;
+    align-content: flex-end;
+    align-self: flex-end ;
+    margin-bottom: 20px;
+}
+
+.botao-editar-self{   
+}
+
+
 .titulo-tela{
-    background-color: rgb(211, 211, 211);
     text-align: center;
     padding: 10px;
     height: 50px;
 }
 
-.conteudo-card{
-    text-align: center;
-    min-width: 780px;
-    min-height: 200px;
-    max-width: 900px;
+
+.acoes{
+    width: 88%;
+    --background-color: aqua;
+    text-align: right;
 }
+
+.tabela-card{
+    text-align: center;
+    width: 90%;
+    min-height: 200px;
+    margin-top: 50px;
+    margin-bottom: 200px;
+}
+
+
 
 table {
     width: 90%;
+    font-size: xx-small;
+    text-align: center;
   }
