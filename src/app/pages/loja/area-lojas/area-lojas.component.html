@@ -1,10 +1,15 @@
-<div class="container-card" fxLayout="row" fxLayoutAlign="center start" >
-    <div  fxLayout="row" fxLayoutAlign="center start" >
+<div class="container"  fxLayout="column" fxLayoutAlign="start center" >
+<div class="container-card" fxLayout="row" fxLayoutAlign="center center" >
+    <div  fxLayout="row" fxLayoutAlign="center center" >
         <mat-card  >
             <div class="titulo-card"><h2>Lojas disponívels</h2></div>
-            <div  class="conteudo-card" fxLayout="row wrap" fxLayoutAlign="center start"  >
-            <mat-card  *ngFor="let loja of lojas" class="loja-card" (click)="detalharLoja(loja)">{{loja.descricao}}</mat-card>
+            <div  class="conteudo-card" fxLayout="row wrap" fxLayoutAlign="center end"  >
+            <mat-card  *ngFor="let loja of lojas" class="loja-card" >{{loja.descricao}} <span class="material-icons" (click)="openEditDialog(loja)">edit</span>
+                <span class="material-icons" (click)="detalharLoja(loja)">visibility</span>
+                <span class="material-icons" (click)="openDialog(loja.id)">delete</span></mat-card>
+            <mat-card class="add-loja-card" (click)="openEditDialog(null)"><mat-icon >add_circle_outline</mat-icon><br>Adicionar Loja</mat-card>
             </div>
         </mat-card>
     </div>
+</div>
 </div>

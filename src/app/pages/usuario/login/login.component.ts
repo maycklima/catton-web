@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { LojaService } from 'src/app/services/loja.service';
-import { UsuarioService } from 'src/app/services/usuario.service';
+import { LojaService } from 'src/app/shared/services/loja.service';
+import { UsuarioService } from 'src/app/shared/services/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -33,6 +33,10 @@ export class LoginComponent implements OnInit {
      {}
 
   ngOnInit() {
+   this.inicializarFormulario();
+  }
+
+  inicializarFormulario(){
     this.formulario = this._formBuilder.group({
       usuario: ['mayck'],
     });

@@ -1,1 +1,50 @@
-<p>loja-incluir-editar works!</p>
+
+        <div class="container-card" fxLayout="column" fxLayoutAlign="center center">
+            <h3>Loja</h3>
+            <form [formGroup]="formulario">
+                    <div fxLayout="column" fxLayoutAlign="start start" >   
+                    <mat-form-field appearance="fill" style="width:400px;">
+                        <mat-label>Nome</mat-label>
+                        <input matInput formControlName="nome" maxlength="80" style="width:400px;">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" style="width:400px;">
+                        <mat-label>Descrição</mat-label>
+                        <input matInput formControlName="descricao" maxlength="80">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" style="width:400px;">
+                        <mat-label>Telefone</mat-label>
+                        <input matInput formControlName="telefone" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        type = "number"
+                        maxlength = "15">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" style="width:400px;">
+                        <mat-label>Celular</mat-label>
+                        <input matInput formControlName="celular" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        type = "number"
+                        maxlength = "15">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" style="width:400px;">
+                        <mat-label>WhatsApp</mat-label>
+                        <input matInput formControlName="whatsapp"type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        type = "number"
+                        maxlength = "15">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" style="width:400px;">
+                        <mat-label>WhatsApp Link</mat-label>
+                        <input matInput formControlName="whatsappLink" maxlength="80">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" style="width:400px;">
+                        <mat-label>Instagram Link</mat-label>
+                        <input matInput formControlName="instagramLink" maxlength="80">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" style="width:400px;">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" maxlength="80">
+                    </mat-form-field>
+                </div>
+            </form>
+        </div>
+<div fxLayout="row" fxLayoutAlign="center center" >
+      <button mat-button (click)="onNoClick()">Cancelar</button>
+      <button mat-button (click)="submit()" color="primary" cdkFocusInitial>{{isEdicao ? 'Salvar' : 'Cadastrar'}}</button>
+</div>

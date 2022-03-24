@@ -1,6 +1,11 @@
-import { LojaService } from 'src/app/services/loja.service';
+import { LojaService } from 'src/app/shared/services/loja.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Usuario } from 'src/app/shared/models/usuario.model';
+import { MatDialog } from '@angular/material/dialog';
+import { LojaIncluirEditarComponent } from '../loja-incluir-editar/loja-incluir-editar.component';
+import { MatDialogComponent } from 'src/app/shared/mat-confirm-dialog/mat-confirm-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-lojas',
@@ -9,7 +14,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AreaLojasComponent implements OnInit {
 
-  constructor(private router: Router, private lojaService: LojaService) { }
+  constructor(
+    private router: Router,
+     private lojaService: LojaService,
+     private _snackBar: MatSnackBar,
+     public dialog: MatDialog
+    ) { }
   
   usuario: any | null = '';
   lojas:any;
@@ -23,7 +33,7 @@ export class AreaLojasComponent implements OnInit {
     this.buscarLojas(this.usuario);
   }
 
-  buscarLojas(usuario:any){
+  buscarLojas(usuario: Usuario){
     if(usuario != null){
       this.lojaService.buscarLojaPorUsuario(usuario).subscribe(lojas => {
         this.lojas = lojas;
@@ -38,5 +48,41 @@ export class AreaLojasComponent implements OnInit {
     console.log(loja)
     this.lojaService.dadosRotaLoja = loja;
     this.router.navigate(['loja-detalhe']);
+  }
+
+  openEditDialog(loja: any): void {
+    const dialogRef = this.dialog.open(LojaIncluirEditarComponent, {
+      width: '700px',
+      height: '600px',
+      data: {loja: loja, usuario: this.usuario,  resposta: true},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+        this.inicializar();
+    });
+  }
+
+  openDialog(id: number): void {
+    const dialogRef = this.dialog.open(MatDialogComponent, {
+      width: '450px',
+      data: {titulo: 'Confirmação', mensagem: 'Deseja realmente excluir este item?', resposta: true},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+      if(result){
+      this.removerItemPorId(id);      
+    }
+    });
+  }
+
+  removerItemPorId(idLoja: number){
+    this.lojaService.removerLojaPorId(idLoja).subscribe(resposta => {
+        this._snackBar.open("Loja removida", "Fechar");
+        this.inicializar();
+    });
   }
 }

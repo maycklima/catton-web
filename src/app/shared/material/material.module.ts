@@ -11,6 +11,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule} from '@angular/material/dialog';
+
 
 
 const MaterialComponents = [
@@ -25,7 +27,8 @@ MatCardModule,
 MatDividerModule,
 MatStepperModule,
 MatSnackBarModule,
-MatTableModule
+MatTableModule,
+MatDialogModule
 ];
 
 @NgModule({

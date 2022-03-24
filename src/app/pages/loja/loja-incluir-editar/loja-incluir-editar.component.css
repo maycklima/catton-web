@@ -1,0 +1,11 @@
+.container{
+    background-color: rgb(237, 237, 237);
+     width: 100%;
+ }
+
+.container-card{
+    width: 650px;
+    height: 500px;
+    font-size: 12px;
+
+}

@@ -87,3 +87,7 @@ table {
     font-size: xx-small;
     text-align: center;
   }
+
+  .material-icons{
+    cursor: pointer;
+  }

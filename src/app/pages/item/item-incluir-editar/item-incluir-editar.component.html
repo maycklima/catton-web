@@ -1,1 +1,45 @@
-<p>item-incluir-editar works!</p>
+<div class="container"  fxLayout="column" fxLayoutAlign="center center" >
+    <!-- <h1 mat-dialog-title>{{data.item.id}}</h1> -->
+    <div mat-dialog-content>
+        <div class="container-card" fxLayout="row" fxLayoutAlign="center start" >
+                    <form [formGroup]="formulario">
+                    <h3>Item</h3>
+                    <div fxLayout="column" fxLayoutAlign="center start" >
+                    <mat-form-field appearance="fill" style="width:400px">
+                        <mat-label>Descrição</mat-label>
+                        <input matInput formControlName="descricao" maxlength="80">
+                    </mat-form-field>
+                    <div fxLayout="row" fxLayoutAlign="center start" >
+                    <mat-form-field appearance="fill" style="width:195px">
+                        <mat-label>Quantidade</mat-label>
+                        <input matInput formControlName="quantidade" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        type = "number"
+                        maxlength = "15">
+                        <span matSuffix>un.</span>
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="fill" style="width:200px; margin-left: 5px;">
+                        <mat-label>Preço</mat-label>
+                        <input matInput formControlName="valor" maxlength="19" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        type = "number"
+                        maxlength = "15" >
+                        <span matPrefix>R$&nbsp;</span>
+                    </mat-form-field>
+                </div>
+
+                    <mat-form-field appearance="fill" style="width:400px">
+                        <mat-label>Categoria</mat-label>
+                        <mat-select formControlName="categoria" [compareWith]="compareFunction">
+                          <mat-option *ngFor="let categoria of listaCategorias" [value]="categoria">{{ categoria.descricao }}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                    </div>
+                    </form>
+        </div>
+    </div>
+ </div>
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="center center" >
+      <button mat-button (click)="onNoClick()">Cancelar</button>
+      <button mat-button (click)="submit()" color="primary" cdkFocusInitial>{{isEdicao ? 'Salvar' : 'Cadastrar'}}</button>
+</div>
