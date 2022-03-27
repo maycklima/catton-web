@@ -1,19 +1,61 @@
 <div class="container"  fxLayout="column" fxLayoutAlign="start center" >
             <mat-card class="card-descricao" fxLayout="column" fxLayoutAlign="center center" fxFlex="100%">
-              <div class="card-descricao-conteudo">
-                
+              <div class="card-descricao-conteudo"  fxLayout="column" fxLayoutAlign="start center">
                 <div class="card-descricao-conteudo-centro"><h2>Sua Loja</h2></div>
-
-                <p> <strong>Loja: </strong> {{ loja.nome }}</p>
-                <p> <strong>CNPJ: </strong> {{ loja.cnpj }}</p>
-                <p> <strong>Descrição: </strong> {{ loja.descricao }}</p>
-                <p> <strong>Email: </strong> {{ loja.email }}</p>
-                <p> <strong>Telefone: </strong> {{ loja.telefone }}</p>
-                <p> <strong>Instagram: </strong> {{ loja.instagramLink }}</p>
-                <p> <strong>Celular: </strong>{{ loja.celular }}</p>
+                    <form [formGroup]="formulario">
+                      <div fxLayout="column" fxLayoutAlign="start start" >   
+                        <div  fxLayout="row" fxLayoutAlign="center start">
+                          <mat-form-field appearance="outline" style="width:400px;" >
+                            <mat-label>Nome</mat-label>
+                            <input matInput formControlName="nome" maxlength="80" style="width:400px;">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" style="width:400px; padding-left: 20px;">
+                            <mat-label>Descrição</mat-label>
+                            <input matInput formControlName="descricao" maxlength="80">
+                          </mat-form-field>
+                        </div>
+                      <div  fxLayout="row" fxLayoutAlign="center start">
+                          <mat-form-field appearance="outline" style="width:400px;">
+                              <mat-label>Telefone</mat-label>
+                              <input matInput formControlName="telefone" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                              type = "number"
+                              maxlength = "15">
+                          </mat-form-field>
+                          <mat-form-field appearance="outline" style="width:400px; padding-left: 20px;">
+                              <mat-label>Celular</mat-label>
+                              <input matInput formControlName="celular" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                              type = "number"
+                              maxlength = "15">
+                          </mat-form-field>
+                        </div>
+                        <div  fxLayout="row" fxLayoutAlign="center start">
+                          <mat-form-field appearance="outline" style="width:400px;">
+                              <mat-label>WhatsApp</mat-label>
+                              <input matInput formControlName="whatsapp"type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                              type = "number"
+                              maxlength = "15">
+                          </mat-form-field>
+                          <mat-form-field appearance="outline" style="width:400px; padding-left: 20px;">
+                              <mat-label>WhatsApp Link</mat-label>
+                              <input matInput formControlName="whatsappLink" maxlength="80">
+                          </mat-form-field>
+                        </div>
+                        <div  fxLayout="row" fxLayoutAlign="center start">
+                          <mat-form-field appearance="outline" style="width:400px;">
+                              <mat-label>Instagram Link</mat-label>
+                              <input matInput formControlName="instagramLink" maxlength="80">
+                          </mat-form-field>
+                          <mat-form-field appearance="outline" style="width:400px; padding-left: 20px;">
+                              <mat-label>Email</mat-label>
+                              <input matInput formControlName="email" maxlength="80">
+                          </mat-form-field>
+                        <div>
+                      </div>
+                    </div>
+                  </div>
+                  </form>
               </div>
-              <div class="botao-editar"><button class="botao-editar-self" mat-raised-button>Editar  <span class="material-icons">edit</span></button><button class="botao-editar-self" mat-raised-button>Visualizar Loja<span class="material-icons">visibility</span></button></div>
-
+              <div class="botao-editar"><button class="botao-editar-self" mat-raised-button (click)="desativarFormulario()" *ngIf="editando" >Cancelar  <span class="material-icons">cancel</span></button><button class="botao-editar-self" mat-raised-button color="primary" (click)="submit()" *ngIf="editando" >Salvar  <span class="material-icons">save</span></button><button class="botao-editar-self" mat-raised-button (click)="ativarFormulario()" *ngIf="!editando" >Editar  <span class="material-icons">edit</span></button><button class="botao-editar-self" mat-raised-button *ngIf="!editando">Visualizar Loja<span class="material-icons">visibility</span></button></div>
             </mat-card>
             <mat-card class="tabela-card" fxLayout="column" fxLayoutAlign="center center" fxFlex="100%" >
                 <h2>Itens da Loja</h2>

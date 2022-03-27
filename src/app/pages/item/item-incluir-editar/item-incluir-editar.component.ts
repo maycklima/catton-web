@@ -46,6 +46,10 @@ export class ItemIncluirEditarComponent implements OnInit {
         valor: [],
         quantidade: [],
         categoria: null,
+        dhInclusao: [],
+        dhExclusao:[],
+        dhUltimaAlteracao:[],
+        loja: []
       });
 
       if(this.data.item != null){
@@ -64,7 +68,7 @@ export class ItemIncluirEditarComponent implements OnInit {
       this.formulario.patchValue(this.data.item);
       this.categoriaDefault = this.data.item.categoria.descricao;
       console.log('this.categoriaDefault')
-      console.log(this.categoriaDefault)
+      console.log(this.formulario)
     }
     
   
@@ -77,12 +81,12 @@ export class ItemIncluirEditarComponent implements OnInit {
   
       console.log("Formulário.")
       console.log(this.formulario.getRawValue())
-      this.itemFormulario.loja = this.data.loja;
 
       console.log("Enviadno.")
       console.log( this.itemFormulario)
 
       if(!this.isEdicao){
+      this.itemFormulario.loja = this.data.loja;
         this.itemService.cadastrarItem(this.itemFormulario).subscribe(resultado => {
           console.log(resultado)
           if(resultado){

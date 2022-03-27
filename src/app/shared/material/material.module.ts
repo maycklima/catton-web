@@ -12,6 +12,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule} from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
@@ -28,7 +29,8 @@ MatDividerModule,
 MatStepperModule,
 MatSnackBarModule,
 MatTableModule,
-MatDialogModule
+MatDialogModule,
+MatTooltipModule
 ];
 
 @NgModule({

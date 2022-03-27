@@ -1,3 +1,4 @@
+import { Usuario } from './usuario.model';
 export interface Loja{
     id: number;
     cnpj: string;
@@ -10,10 +11,9 @@ export interface Loja{
     whatsappLink: string;
     instagramLink: string;
     email: string;
-
-    dhInclusao: Date;
-    dhUltimaAlteracao:Date ;
-    dhExclusao: Date;
+    dhInclusao: any;
+    dhUltimaAlteracao:any ;
+    dhExclusao: any;
     
-    usuarioPriprietario:any;
+    usuarioProprietario: Usuario;
 }

@@ -19,11 +19,14 @@
 }
 
 .loja-card{
-    width: 100px;
-    height: 100px;
+    width: 250px;
     margin: 5px;
     cursor: pointer;
     text-align: center;
+}
+
+.acoes{
+    --background-color: pink;
 }
 
 .titulo-card{

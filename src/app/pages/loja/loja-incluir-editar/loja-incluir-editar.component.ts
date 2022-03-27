@@ -38,7 +38,11 @@ export class LojaIncluirEditarComponent implements OnInit {
       whatsapp: [62996801751],
       whatsappLink: ['Link WhatsApp'],
       instagramLink: ['Link Instagram'],
-      email: ['lojamayck@gmail.com']
+      email: ['lojamayck@gmail.com'],
+      dhInclusao: [],
+      dhExclusao:[],
+      dhUltimaAlteracao:[],
+      usuarioProprietario:[]   
     });
 
     if(this.data.loja != null){
@@ -71,14 +75,13 @@ export class LojaIncluirEditarComponent implements OnInit {
         }
       });
     }else{
-      this.lojaService.atualizarLoja( this.lojaFormulario).subscribe(resultado => {
+      this.lojaService.atualizarLoja(this.lojaFormulario).subscribe(resultado => {
         console.log(resultado)
         if(resultado){
           this.onNoClick();
         }
       });
     }
-    
   }
   onNoClick(): void {
     this.dialogRef.close();
