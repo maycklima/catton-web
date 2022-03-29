@@ -1,0 +1,21 @@
+::ng-deep .notify-warning{
+    color: white !important;
+    background-color: orange !important;
+    border-color: black !important;
+  }
+
+::ng-deep .notify-successful{
+    color: white !important;
+    background-color: green !important;
+    border-color: black !important;
+  }
+
+::ng-deep .notify-error{
+    color: white !important;
+    background-color: red !important;
+    border-color: black !important;
+}
+
+::ng-deep::ng-deep .mat-simple-snackbar-action {
+  color: white;
+} 

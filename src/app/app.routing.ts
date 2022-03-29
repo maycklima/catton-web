@@ -9,7 +9,7 @@ import { LoginComponent } from "./pages/usuario/login/login.component";
 
 const APP_ROUTES: Routes = [
 {path:'', component: LoginComponent},
-{path:'home', component: HomeComponent},
+{path:'loja/:url', component: HomeComponent},
 {path:'login', component: LoginComponent},
 {path:'cadastro', component: CadastroComponent},
 {path:'area-lojas', component: AreaLojasComponent},

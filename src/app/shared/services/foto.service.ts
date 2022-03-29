@@ -6,15 +6,15 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriaService{
+export class FotoService{
 
-  private readonly APIreport = `${environment.API}/categoria`;
+  private readonly APIreport = `${environment.API}/fotos`;
 
   constructor(private http: HttpClient) {
   }
 
-    listarCategorias(): Observable<any[]> {
-      return this.http.get<any[]>(`${this.APIreport}/listarCategorias/`);
+    enviarFoto(foto:any): Observable<any[]> {
+      return this.http.post<any[]>(`${this.APIreport}/uploadFoto`, foto);
   }
   
 }

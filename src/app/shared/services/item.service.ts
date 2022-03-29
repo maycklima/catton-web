@@ -18,8 +18,12 @@ export class ItemService{
       return this.http.get<any[]>(`${this.APIreport}/listarItens/`);
     }
 
-    listarItensPorIdLoja(idLoja:number): Observable<any[]> {
-      return this.http.get<any[]>(`${this.APIreport}/buscarItemPorIdLoja/` + idLoja);
+  listarItensPorIdLoja(idLoja:number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.APIreport}/buscarItemPorIdLoja/` + idLoja);
+  }
+
+  listarItensPorUrlLoja(urlLoja:string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.APIreport}/buscarItemPorUrlLoja/` + urlLoja);
   }
 
   cadastrarItem(item: Item): Observable<any[]> {

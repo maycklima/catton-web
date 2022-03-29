@@ -1,9 +1,7 @@
 <div class="container"  fxLayout="column" fxLayoutAlign="start center" >
-<div class="container-card" fxLayout="row" fxLayoutAlign="center center" >
-    <div  fxLayout="row" fxLayoutAlign="center center" >
-        <mat-card  >
+        <mat-card class="container-card" >
             <div class="titulo-card"><h2>Minhas Lojas</h2></div>
-            <div  class="conteudo-card" fxLayout="row wrap" fxLayoutAlign="center end"  >
+            <div class="conteudo-card" fxLayout="row wrap" fxLayoutAlign="center end"  >
             <mat-card  *ngFor="let loja of lojas" class="loja-card" fxLayout="column" fxLayoutAlign="center center">
                 <div>{{loja.nome}}</div>
                 <div>{{loja.descricao}}</div>
@@ -16,6 +14,4 @@
             <mat-card class="add-loja-card" (click)="openEditDialog(null)"><mat-icon >add_circle_outline</mat-icon><br>Adicionar Loja</mat-card>
             </div>
         </mat-card>
-    </div>
-</div>
 </div>

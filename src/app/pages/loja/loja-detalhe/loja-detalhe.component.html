@@ -1,10 +1,10 @@
 <div class="container"  fxLayout="column" fxLayoutAlign="start center" >
-            <mat-card class="card-descricao" fxLayout="column" fxLayoutAlign="center center" fxFlex="100%">
+            <mat-card class="card-descricao" fxLayout="column" fxLayoutAlign="center center">
               <div class="card-descricao-conteudo"  fxLayout="column" fxLayoutAlign="start center">
                 <div class="card-descricao-conteudo-centro"><h2>Sua Loja</h2></div>
-                    <form [formGroup]="formulario">
-                      <div fxLayout="column" fxLayoutAlign="start start" >   
+                    <form [formGroup]="formulario"> 
                         <div  fxLayout="row" fxLayoutAlign="center start">
+                          <input type="file" (change)="inputFileChange($event)"/>
                           <mat-form-field appearance="outline" style="width:400px;" >
                             <mat-label>Nome</mat-label>
                             <input matInput formControlName="nome" maxlength="80" style="width:400px;">
@@ -49,13 +49,21 @@
                               <mat-label>Email</mat-label>
                               <input matInput formControlName="email" maxlength="80">
                           </mat-form-field>
-                        <div>
                       </div>
+                      <div  fxLayout="row" fxLayoutAlign="center center">
+                        <div>www.caton.com.br/loja/</div> 
+                        <mat-form-field appearance="outline" style="width:400px;">
+                            <mat-label>Url Loja</mat-label>
+                           <input matInput formControlName="url" maxlength="80">
+                        </mat-form-field>
                     </div>
-                  </div>
                   </form>
               </div>
-              <div class="botao-editar"><button class="botao-editar-self" mat-raised-button (click)="desativarFormulario()" *ngIf="editando" >Cancelar  <span class="material-icons">cancel</span></button><button class="botao-editar-self" mat-raised-button color="primary" (click)="submit()" *ngIf="editando" >Salvar  <span class="material-icons">save</span></button><button class="botao-editar-self" mat-raised-button (click)="ativarFormulario()" *ngIf="!editando" >Editar  <span class="material-icons">edit</span></button><button class="botao-editar-self" mat-raised-button *ngIf="!editando">Visualizar Loja<span class="material-icons">visibility</span></button></div>
+              <div class="botao-editar">
+                <button class="botao-editar-self" mat-raised-button (click)="desativarFormulario()" *ngIf="editando"  > Cancelar  <span class="material-icons">cancel</span></button>
+                <button class="botao-editar-self" mat-raised-button (click)="submit()"              *ngIf="editando"   color="primary" >Salvar  <span class="material-icons">save</span></button>
+                <button class="botao-editar-self" mat-raised-button (click)="ativarFormulario()"    *ngIf="!editando" > Editar  <span class="material-icons">edit</span></button>
+                <button class="botao-editar-self" mat-raised-button (click)="visualizarLoja()"      *ngIf="!editando" target="_blank" > Visualizar Loja<span class="material-icons">visibility</span></button></div>
             </mat-card>
             <mat-card class="tabela-card" fxLayout="column" fxLayoutAlign="center center" fxFlex="100%" >
                 <h2>Itens da Loja</h2>

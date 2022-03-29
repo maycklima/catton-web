@@ -15,7 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AreaLojasComponent implements OnInit {
 
   constructor(
-    private router: Router,
+     private router: Router,
      private lojaService: LojaService,
      private _snackBar: MatSnackBar,
      public dialog: MatDialog
@@ -81,7 +81,11 @@ export class AreaLojasComponent implements OnInit {
 
   removerItemPorId(idLoja: number){
     this.lojaService.removerLojaPorId(idLoja).subscribe(resposta => {
-        this._snackBar.open("Loja removida", "Fechar");
+        this._snackBar.open("Loja removida", "Fechar", {
+          duration: 2000,
+          verticalPosition: 'bottom',
+          panelClass: 'notify-successfull'
+      });
         this.inicializar();
     });
   }

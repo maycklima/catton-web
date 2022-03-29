@@ -1,10 +1,11 @@
 import { CategoriaService } from './../../../shared/services/categoria.service';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogComponent } from 'src/app/shared/mat-confirm-dialog/mat-confirm-dialog.component';
 import { ItemDialogData } from 'src/app/shared/models/itemDialog';
 import { ItemService } from 'src/app/shared/services/item.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-item-incluir-editar',
@@ -25,6 +26,7 @@ export class ItemIncluirEditarComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: ItemDialogData,
     private _formBuilder: FormBuilder,
     private itemService: ItemService,
+    private _snackBar: MatSnackBar,
     private categoriaService: CategoriaService) 
     { }
 
@@ -41,15 +43,15 @@ export class ItemIncluirEditarComponent implements OnInit {
   
     inicializarFormulario(){
       this.formulario = this._formBuilder.group({
-        id: [],
-        descricao: [],
-        valor: [],
-        quantidade: [],
-        categoria: null,
+        id:         [],
+        descricao:  [null, Validators.required],
+        valor:      [null, Validators.required],
+        quantidade: [null, Validators.required],
+        categoria:  [null, Validators.required],
         dhInclusao: [],
-        dhExclusao:[],
+        dhExclusao: [],
         dhUltimaAlteracao:[],
-        loja: []
+        loja:       []
       });
 
       if(this.data.item != null){
@@ -84,22 +86,39 @@ export class ItemIncluirEditarComponent implements OnInit {
 
       console.log("Enviadno.")
       console.log( this.itemFormulario)
-
-      if(!this.isEdicao){
-      this.itemFormulario.loja = this.data.loja;
-        this.itemService.cadastrarItem(this.itemFormulario).subscribe(resultado => {
-          console.log(resultado)
-          if(resultado){
-            this.onNoClick();
+      if(this.formulario.valid){
+        if(!this.isEdicao){
+          this.itemFormulario.loja = this.data.loja;
+            this.itemService.cadastrarItem(this.itemFormulario).subscribe(resultado => {
+              console.log(resultado)
+              if(resultado){
+              this._snackBar.open("Item cadastrado com sucesso!", "Fechar", {
+                duration: 2000,
+                verticalPosition: 'bottom',
+                panelClass: 'notify-successful'
+            });
+                this.onNoClick();
+              }
+            });
+          }else{
+            this.itemService.atualizarItem(this.itemFormulario).subscribe(resultado => {
+              console.log(resultado)
+              if(resultado){
+                this._snackBar.open("Item atualizado com sucesso!", "Fechar", {
+                  duration: 2000,
+                  verticalPosition: 'bottom',
+                  panelClass: 'notify-successful'
+              });
+                this.onNoClick();
+              }
+            });
           }
-        });
       }else{
-        this.itemService.atualizarItem(this.itemFormulario).subscribe(resultado => {
-          console.log(resultado)
-          if(resultado){
-            this.onNoClick();
-          }
-        });
+        this._snackBar.open("Preencha todos os campos corretamente!", "Fechar", {
+          duration: 2000,
+          verticalPosition: 'bottom',
+          panelClass: 'notify-warning'
+      });
       }
 
     }

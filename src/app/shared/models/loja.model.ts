@@ -11,6 +11,7 @@ export interface Loja{
     whatsappLink: string;
     instagramLink: string;
     email: string;
+    url: string;
     dhInclusao: any;
     dhUltimaAlteracao:any ;
     dhExclusao: any;

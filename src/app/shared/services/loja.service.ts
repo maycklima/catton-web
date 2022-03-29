@@ -19,15 +19,19 @@ export class LojaService{
   }
 
     buscarLojaPorUsuario(usuario: Usuario): Observable<any[]> {
-    return this.http.post<any[]>(`${this.APIreport}/buscarLojaPorUsuario`, usuario);
+      return this.http.post<any[]>(`${this.APIreport}/buscarLojaPorUsuario`, usuario);
+    }
+
+    listarLojaPorUrl(urlLoja:string): Observable<any> {
+      return this.http.get<any>(`${this.APIreport}/buscarLojaPorUrl/` + urlLoja);
     }
 
     cadastrarLoja(loja: Loja): Observable<any[]> {
       return this.http.post<any[]>(`${this.APIreport}/cadastrarLoja`, loja);
     }
   
-    atualizarLoja(loja: Loja): Observable<any[]> {
-      return this.http.put<any[]>(`${this.APIreport}/atualizarLoja`, loja);
+    atualizarLoja(loja: Loja): Observable<Loja> {
+      return this.http.put<Loja>(`${this.APIreport}/atualizarLoja`, loja);
     }
 
     removerLojaPorId(idLoja:number): Observable<any[]> {

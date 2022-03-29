@@ -22,6 +22,7 @@ import { ItensComponent } from './pages/item/itens/itens.component';
 import { MatDialogComponent } from './shared/mat-confirm-dialog/mat-confirm-dialog.component';
 import ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { ClasseTesteComponent } from './classe-teste/classe-teste.component';
 
 registerLocaleData(ptBr);
 
@@ -42,6 +43,7 @@ registerLocaleData(ptBr);
     ItemDetalheComponent,
     ItemIncluirEditarComponent,
     MatDialogComponent,
+    ClasseTesteComponent,
     
   ],
   imports: [

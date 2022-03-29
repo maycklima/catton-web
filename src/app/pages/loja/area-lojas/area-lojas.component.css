@@ -1,9 +1,16 @@
-.container-card{
+
+
+.container{
+    background-color: gray;
     height: 100%;
-    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+ }
+
+.container-card{
+    min-width: 70%;
+    min-height: 400px;
     margin-top: 50px;
-    margin-bottom: 100px;
-    
     text-align: center;
 }
 
@@ -13,9 +20,7 @@
     margin: 5px;
     cursor: pointer;
     color: green;
-    
     text-align: center;
-
 }
 
 .loja-card{
@@ -40,8 +45,24 @@
     width: 40px;
   }
 
-  .container{
-    background-color: gray;
-     width: 100%;
-     height: 100%;
- }
+ ::ng-deep .notify-warning{
+  color: white !important;
+  background-color: orange !important;
+  border-color: black !important;
+}
+
+::ng-deep .notify-successful{
+  color: white !important;
+  background-color: green !important;
+  border-color: black !important;
+}
+
+::ng-deep .notify-error{
+  color: white !important;
+  background-color: red !important;
+  border-color: black !important;
+}
+
+::ng-deep::ng-deep .mat-simple-snackbar-action {
+color: white;
+} 
