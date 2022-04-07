@@ -2,6 +2,7 @@ import { LojaService } from 'src/app/shared/services/loja.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ItemService } from 'src/app/shared/services/item.service';
+import { Loja } from 'src/app/shared/models/loja.model';
 
 @Component({
   selector: 'app-itens',
@@ -12,6 +13,7 @@ export class ItensComponent implements OnInit {
 
   item: any;
   url: any;
+  loja!: Loja;
 
   constructor(
     private router: Router,
@@ -29,8 +31,9 @@ export class ItensComponent implements OnInit {
     this.lojaService.listarLojaPorUrl(url).subscribe(resposta => {
       console.log(resposta)
       if(resposta != null){
+        this.loja = resposta;
         console.log('loja encontrada');
-        this.listarItensPorIdLoja(this.url);
+        this.listarItensPorUrlLoja(this.loja.id);
       }else{
         console.log('loja n encontrada');
         this.router.navigate(['login']);
@@ -39,8 +42,8 @@ export class ItensComponent implements OnInit {
   });
   }
 
-  listarItensPorIdLoja(url: string){
-    this.itemService.listarItensPorUrlLoja(url).subscribe(resposta => {
+  listarItensPorUrlLoja(idLoja: number){
+    this.itemService.listarItensPorIdLoja(idLoja).subscribe(resposta => {
       console.log(resposta);
       this.item = resposta;
   });

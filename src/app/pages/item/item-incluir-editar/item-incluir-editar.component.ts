@@ -77,6 +77,7 @@ export class ItemIncluirEditarComponent implements OnInit {
     submit(){  
       console.log("Cadastrando item...")
       this.itemFormulario = this.formulario.getRawValue();
+      this.itemFormulario.loja = this.data.loja;
 
       console.log("Data.")
       console.log(this.data)
@@ -88,7 +89,6 @@ export class ItemIncluirEditarComponent implements OnInit {
       console.log( this.itemFormulario)
       if(this.formulario.valid){
         if(!this.isEdicao){
-          this.itemFormulario.loja = this.data.loja;
             this.itemService.cadastrarItem(this.itemFormulario).subscribe(resultado => {
               console.log(resultado)
               if(resultado){

@@ -10,20 +10,20 @@
                         <input matInput formControlName="descricao" maxlength="80">
                     </mat-form-field>
                     <div fxLayout="row" fxLayoutAlign="center start" >
+                    <mat-form-field appearance="fill" style="width:200px; margin-right: 5px;">
+                        <mat-label>Preço</mat-label>
+                        <input matInput formControlName="valor" maxlength="19" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        type = "number"
+                        maxlength = "15" >
+                        <span matPrefix>R$&nbsp;</span>
+                    </mat-form-field>
+
                     <mat-form-field appearance="fill" style="width:195px">
                         <mat-label>Quantidade</mat-label>
                         <input matInput formControlName="quantidade" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                         type = "number"
                         maxlength = "15">
                         <span matSuffix>un.</span>
-                    </mat-form-field>
-                    
-                    <mat-form-field appearance="fill" style="width:200px; margin-left: 5px;">
-                        <mat-label>Preço</mat-label>
-                        <input matInput formControlName="valor" maxlength="19" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                        type = "number"
-                        maxlength = "15" >
-                        <span matPrefix>R$&nbsp;</span>
                     </mat-form-field>
                     </div>
 

@@ -1,20 +1,40 @@
-<div class="container" fxLayoutAlign="center center" fxFlex="100%">
-    <div class="iten" fxLayout="row wrap" fxLayoutAlign="center center" fxFlex="80%">
-    <div *ngFor="let item of item" class="item">
-    <mat-divider></mat-divider> 
-      <div>
-        <img class="item-imagem" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"><br>
+
+<div class="container" fxLayout="column" fxLayoutAlign="center center" fxFlex="100%">
+  <div class="perfil" fxLayout="row" fxLayoutAlign="center center" fxFlex="100%">
+      <div class="imagem-perfil" fxFlex="20%">
+          <!-- <div fxLayout="30%"><img  class="perfil" src="https://material.angular.io/assets/img/examples/shiba1.jpg"></div> -->
+          <!-- <img class="imagem" src="assets/faixada.png"> -->
+            <img class="imagem" src="http://127.0.0.1:8887/lojas/{{loja.id}}/banner/imagem-banner.png">
       </div>
-      <div class="item-descricao" >
-          <span> R$ {{ item?.valor }}                    </span><br>
-          <span>    {{ item?.descricao }}                </span><br>
-          <span>    ({{item?.quantidade }} disponíveis) </span>
+      <div class="descricao-perfil" fxFlex="80%" >
+        <!-- <div fxLayout="30%"><img  class="perfil" src="https://material.angular.io/assets/img/examples/shiba1.jpg"></div> -->
+        <!-- <img class="imagem" src="assets/faixada.png"> -->
+        <span class="nome-loja">{{ loja?.nome }}</span><br>
+        <span>    {{loja?.descricao}}</span><br>
+        <a href="{{loja?.instagramLink}}" target="_blank">{{loja?.instagramLink}}</a><br>
+        <span>    {{ loja?.whatsapp }}</span><br>
+        <a href="{{loja?.whatsappLink}}" target="_blank">{{loja?.whatsappLink}}</a><br>
       </div>
-      <div>
-        <button mat-raised-button>LIKE</button>
-        <button mat-raised-button>SHARE</button>
+  </div>
+    <div class="item" fxLayout="row wrap" fxLayoutAlign="center center">
+      <div *ngFor="let item of item" class="item">
+      <mat-divider></mat-divider> 
+      <div fxLayout="column" fxLayoutAlign="start center">
+
+        <div>
+          <img class="item-imagem" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"><br>
+        </div>
+        <div class="item-descricao" >
+            <span> R$ {{ item?.valor }}                    </span><br>
+            <span>    {{ item?.descricao }}                </span><br>
+            <span>    ({{item?.quantidade }} disponíveis) </span>
+        </div>
+        <div>
+          <button mat-raised-button>LIKE</button>
+          <button mat-raised-button>SHARE</button>
+        </div>
       </div>
     </div>
-  </div>
+    </div>  
 </div>
   

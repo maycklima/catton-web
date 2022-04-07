@@ -1,0 +1,23 @@
+.container{
+    background-color: rgb(237, 237, 237);
+     width: 100%;
+     height: 100%;
+ }
+ 
+ .card-descricao{
+     --background-color: aqua;
+     width: 88%;
+     box-shadow: 1px 1px rgb(208, 208, 208);
+     margin-top: 50px;
+ }
+
+ .item-imagem{
+    --background-color: blue;
+     padding-left: 20px;
+     padding-top: 20px;
+     padding-right: 20px;
+     min-width: 700px;
+     max-height: 150px; 
+     border-bottom-right-radius: 50px;
+      border-bottom-left-radius: 50px;
+ }

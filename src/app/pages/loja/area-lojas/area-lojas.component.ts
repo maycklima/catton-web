@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/shared/models/usuario.model';
 import { MatDialog } from '@angular/material/dialog';
-import { LojaIncluirEditarComponent } from '../loja-incluir-editar/loja-incluir-editar.component';
+import { LojaIncluirEditarComponent } from '../loja-incluir-modal/loja-incluir-modal.component';
 import { MatDialogComponent } from 'src/app/shared/mat-confirm-dialog/mat-confirm-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -48,6 +48,16 @@ export class AreaLojasComponent implements OnInit {
     console.log(loja)
     this.lojaService.dadosRotaLoja = loja;
     this.router.navigate(['loja-detalhe']);
+  }
+
+  visualizarLoja(lojaUrl: string): void {
+    const url = this.router.serializeUrl(this.router.createUrlTree(['loja', lojaUrl]));  
+    window.open(url, '_blank');
+  }
+
+  editarLoja(loja: any): void {
+    this.lojaService.dadosRotaLoja = loja;
+    this.router.navigate(['loja-editar']);
   }
 
   openEditDialog(loja: any): void {

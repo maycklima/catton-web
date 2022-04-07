@@ -1,0 +1,72 @@
+<div class="container"  fxLayout="column" fxLayoutAlign="start center" >
+    <mat-card class="card-descricao" fxLayout="column" fxLayoutAlign="center center">
+      <div class="card-descricao-conteudo"  fxLayout="column" fxLayoutAlign="start center">
+        <div class="card-descricao-conteudo-centro"><h2>Editar Loja</h2></div>
+            <form [formGroup]="formulario"> 
+                <div  fxLayout="row" fxLayoutAlign="center start">
+                  <div >
+                    <!-- <img class="item-imagem" src={{loja.diretorio}} alt="Photo of a Shiba Inu"><br> -->
+                    <img class="item-imagem" src="http://127.0.0.1:8887/lojas/{{loja.id}}/banner/imagem-banner.png" alt="Photo of a Shiba Inu"><br>
+                    <input type="file" (change)="inputFileChange($event)"/>
+                  </div>
+                </div>
+                <div  fxLayout="row" fxLayoutAlign="center start">
+                <mat-form-field appearance="outline" style="width:400px;">
+                    <mat-label>Url Loja</mat-label>
+                   <input matInput formControlName="url" maxlength="80">
+                </mat-form-field>
+                </div>
+                <div  fxLayout="row" fxLayoutAlign="center start">
+                  <mat-form-field appearance="outline" style="width:400px;" >
+                    <mat-label>Nome</mat-label>
+                    <input matInput formControlName="nome" maxlength="80" style="width:400px;">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="width:400px; padding-left: 20px;">
+                    <mat-label>Descrição</mat-label>
+                    <input matInput formControlName="descricao" maxlength="80">
+                  </mat-form-field>
+                </div>
+              <div  fxLayout="row" fxLayoutAlign="center start">
+                  <mat-form-field appearance="outline" style="width:400px;">
+                      <mat-label>Telefone</mat-label>
+                      <input matInput formControlName="telefone" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      type = "number"
+                      maxlength = "15">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" style="width:400px; padding-left: 20px;">
+                      <mat-label>Celular</mat-label>
+                      <input matInput formControlName="celular" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      type = "number"
+                      maxlength = "15">
+                  </mat-form-field>
+                </div>
+                <div  fxLayout="row" fxLayoutAlign="center start">
+                  <mat-form-field appearance="outline" style="width:400px;">
+                      <mat-label>WhatsApp</mat-label>
+                      <input matInput formControlName="whatsapp"type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      type = "number"
+                      maxlength = "15">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" style="width:400px; padding-left: 20px;">
+                      <mat-label>WhatsApp Link</mat-label>
+                      <input matInput formControlName="whatsappLink" maxlength="80">
+                  </mat-form-field>
+                </div>
+                <div  fxLayout="row" fxLayoutAlign="center start">
+                  <mat-form-field appearance="outline" style="width:400px;">
+                      <mat-label>Instagram Link</mat-label>
+                      <input matInput formControlName="instagramLink" maxlength="80">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" style="width:400px; padding-left: 20px;">
+                      <mat-label>Email</mat-label>
+                      <input matInput formControlName="email" maxlength="80">
+                  </mat-form-field>
+              </div>
+          </form>
+      </div>
+      <div class="botao-editar">
+        <button class="botao-editar-self" mat-raised-button (click)="cancelar()" > Cancelar </button>
+        <button class="botao-editar-self" mat-raised-button (click)="submit()" color="primary" >Salvar</button>
+      </div>
+    </mat-card>
+</div>

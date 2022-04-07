@@ -5,11 +5,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogComponent } from 'src/app/shared/mat-confirm-dialog/mat-confirm-dialog.component';
 import { ItemIncluirEditarComponent } from '../../item/item-incluir-editar/item-incluir-editar.component';
-import { LojaIncluirEditarComponent } from '../loja-incluir-editar/loja-incluir-editar.component';
 import { Loja } from 'src/app/shared/models/loja.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { FotoService } from 'src/app/shared/services/foto.service';
 
 @Component({
@@ -38,7 +36,7 @@ export class LojaDetalheComponent implements OnInit {
   editando: boolean = false;
   lojaFormulario!: Loja;
   
-  displayedColumns: string[] = ['descricao', 'quantidade', 'valor', 'acoes'];
+  displayedColumns: string[] = ['descricao','valor','quantidade','categoria','acoes'];
     
   
 
@@ -67,7 +65,7 @@ export class LojaDetalheComponent implements OnInit {
   }
 
   preencherFormulario(loja: Loja){
-    this.formulario.patchValue(loja);   
+    this.formulario.patchValue(loja);
     this.desativarFormulario();
   }
 
@@ -122,6 +120,11 @@ export class LojaDetalheComponent implements OnInit {
     });
   }
 
+  editarLoja(): void {
+    this.lojaService.dadosRotaLoja = this.loja;
+    this.router.navigate(['loja-editar']);
+  }
+
   desativarFormulario(): void {
     this.formulario.get('nome')?.disable();
     this.formulario.get('descricao')?.disable();
@@ -132,22 +135,6 @@ export class LojaDetalheComponent implements OnInit {
     this.formulario.get('instagramLink')?.disable();
     this.formulario.get('email')?.disable();
     this.formulario.get('url')?.disable();
-
-    this.editando = false;
-  }
-
-  ativarFormulario(): void {
-    this.formulario.get('nome')?.enable();
-    this.formulario.get('descricao')?.enable();
-    this.formulario.get('telefone')?.enable();
-    this.formulario.get('celular')?.enable();
-    this.formulario.get('whatsapp')?.enable();
-    this.formulario.get('whatsappLink')?.enable();
-    this.formulario.get('instagramLink')?.enable();
-    this.formulario.get('email')?.enable();
-    this.formulario.get('url')?.enable();
-
-    this.editando = true;
   }
 
   visualizarLoja(): void {
@@ -155,34 +142,4 @@ export class LojaDetalheComponent implements OnInit {
     window.open(url, '_blank');
   }
 
-
-  inputFileChange(event: any) {
-    if (event.target.files && event.target.files[0]) {
-      const foto = event.target.files[0];
-
-      const formData = new FormData();
-      formData.append('foto', foto);
-
-      this.fotoService.enviarFoto(formData).subscribe(result => {
-        console.log(result)
-      });
-    }
-  }
-
-  submit(){
-    console.log(this.loja)
-    this.lojaFormulario = this.formulario.getRawValue();
-      this.lojaService.atualizarLoja(this.lojaFormulario).subscribe(resultado => {
-        console.log(resultado)
-        if(resultado){
-          this.loja = resultado;
-          this._snackBar.open("Loja atualizada com sucesso!", "Fechar", {
-            duration: 2000,
-            verticalPosition: 'bottom',
-            panelClass: 'notify-successful'
-        });
-          this.desativarFormulario();
-        }
-      });
-  }
 }

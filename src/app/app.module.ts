@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material/material.module';
@@ -14,15 +14,16 @@ import { BannerComponent } from './pages/home/banner/banner.component';
 import { ToolbarComponent } from './pages/home/toolbar/toolbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AreaLojasComponent } from './pages/loja/area-lojas/area-lojas.component';
-import { LojaIncluirEditarComponent } from './pages/loja/loja-incluir-editar/loja-incluir-editar.component';
+import { LojaIncluirEditarComponent } from './pages/loja/loja-incluir-modal/loja-incluir-modal.component';
 import { LojaDetalheComponent } from './pages/loja/loja-detalhe/loja-detalhe.component';
 import { ItemDetalheComponent } from './pages/item/item-detalhe/item-detalhe.component';
 import { ItemIncluirEditarComponent } from './pages/item/item-incluir-editar/item-incluir-editar.component';
 import { ItensComponent } from './pages/item/itens/itens.component';
 import { MatDialogComponent } from './shared/mat-confirm-dialog/mat-confirm-dialog.component';
-import ptBr from '@angular/common/locales/pt';
+import   ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
-import { ClasseTesteComponent } from './classe-teste/classe-teste.component';
+import { LojaEditarComponent } from './pages/loja/loja-editar/loja-editar.component';
+import { FooterComponent } from './pages/home/footer/footer.component';
 
 registerLocaleData(ptBr);
 
@@ -37,14 +38,14 @@ registerLocaleData(ptBr);
     PerfilComponent,
     BannerComponent,
     ToolbarComponent,
+    FooterComponent,
     AreaLojasComponent,
     LojaDetalheComponent,
     LojaIncluirEditarComponent,
     ItemDetalheComponent,
     ItemIncluirEditarComponent,
     MatDialogComponent,
-    ClasseTesteComponent,
-    
+    LojaEditarComponent
   ],
   imports: [
     BrowserModule,

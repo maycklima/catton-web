@@ -1,4 +1,4 @@
-import { Loja } from './../../../shared/models/loja.model';
+import { Loja } from '../../../shared/models/loja.model';
 import { LojaService } from 'src/app/shared/services/loja.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -8,9 +8,9 @@ import { LojaDialogData } from 'src/app/shared/models/lojaDialogData';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-loja-incluir-editar',
-  templateUrl: './loja-incluir-editar.component.html',
-  styleUrls: ['./loja-incluir-editar.component.css']
+  selector: 'app-loja-incluir-modal',
+  templateUrl: './loja-incluir-modal.component.html',
+  styleUrls: ['./loja-incluir-modal.component.css']
 })
 export class LojaIncluirEditarComponent implements OnInit {
 

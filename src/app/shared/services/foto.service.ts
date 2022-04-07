@@ -13,8 +13,9 @@ export class FotoService{
   constructor(private http: HttpClient) {
   }
 
-    enviarFoto(foto:any): Observable<any[]> {
-      return this.http.post<any[]>(`${this.APIreport}/uploadFoto`, foto);
+    enviarFoto(foto:any, idLoja:number): Observable<any[]> {
+      console.log(foto)
+      return this.http.post<any[]>(`${this.APIreport}/uploadFoto/${idLoja}`, foto);
   }
   
 }
